@@ -1,0 +1,90 @@
+<!-- Validation failure messages -->
+<% if @director.errors.any? %>
+  <% @director.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Director</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_director" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @director.name %>">
+      </div>
+
+      <!-- Label and input for dob -->
+      <div class="form-group">
+        <label for="dob" class="control-label">
+          Dob
+        </label>
+
+        <input type="text" id="dob" name="dob" placeholder="Dob" class="form-control" value="<%= @director.dob %>">
+      </div>
+
+      <!-- Label and input for age -->
+      <div class="form-group">
+        <label for="age" class="control-label">
+          Age
+        </label>
+
+        <input type="text" id="age" name="age" placeholder="Age" class="form-control" value="<%= @director.age %>">
+      </div>
+
+      <!-- Label and input for bio -->
+      <div class="form-group">
+        <label for="bio" class="control-label">
+          Bio
+        </label>
+
+        <textarea id="bio" name="bio" placeholder="Bio" class="form-control" rows="3"><%= @director.bio %></textarea>
+      </div>
+
+      <!-- Label and input for oscar -->
+      <div class="checkbox">
+        <label for="oscar">
+          <input type="checkbox" id="oscar" name="oscar" value="1" <%= "checked" if @director.oscar %>>
+          Oscar
+        </label>
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @director.image %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @director.address %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Director
+      </button>
+      or
+      <a href="/directors">Cancel</a>
+    </form>
+  </div>
+</div>
