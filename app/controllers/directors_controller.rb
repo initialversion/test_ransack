@@ -1,6 +1,6 @@
 class DirectorsController < ApplicationController
   def index
-    @directors = Director.all
+    @directors = Director.page(params[:page])
     @location_hash = Gmaps4rails.build_markers(@directors.where.not(:address_latitude => nil)) do |director, marker|
       marker.lat director.address_latitude
       marker.lng director.address_longitude
