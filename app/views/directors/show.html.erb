@@ -41,3 +41,32 @@
     </div>
   </div>
 </div>
+
+<!-- A Director has many movies -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Movies
+      </li>
+
+      <% @director.movies.each do |movie| %>
+        <li class="list-group-item">
+          <a href="/movies/<%= movie.id %>">
+            <%= movie.title %>
+          </a>
+          <a href="/movies/<%= movie.id %>" class="btn btn-primary">
+            Show
+          </a>
+          <a href="/movies/<%= movie.id %>/edit" class="btn btn-warning">
+            Edit
+          </a>
+          <a href="/delete_movie/<%= movie.id %>" class="btn btn-danger" rel="nofollow">
+            Delete
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
