@@ -4,6 +4,70 @@
     <a href="/movies/new" class="btn btn-lg btn-success">New Movie</a>
   </h1>
 </div>
+<%= search_form_for @q do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :title_cont, "Title containing" %>
+    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title containing" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :duration_lt, "Duration less than" %>
+    <%= f.text_field :duration_lt, :class => "form-control", :placeholder => "Duration less than" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :duration_lteq, "Duration less than or equal to" %>
+    <%= f.text_field :duration_lteq, :class => "form-control", :placeholder => "Duration less than or equal to" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :duration_gt, "Duration greater than" %>
+    <%= f.text_field :duration_gt, :class => "form-control", :placeholder => "Duration greater than" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :duration_gteq, "Duration greater than or equal to" %>
+    <%= f.text_field :duration_gteq, :class => "form-control", :placeholder => "Duration greater than or equal to" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :rating_lt, "Rating " %>
+    <%= f.text_field :rating_lt, :class => "form-control", :placeholder => "Rating " %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :rating_lteq, "Rating " %>
+    <%= f.text_field :rating_lteq, :class => "form-control", :placeholder => "Rating " %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :rating_gt, "Rating " %>
+    <%= f.text_field :rating_gt, :class => "form-control", :placeholder => "Rating " %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :rating_gteq, "Rating " %>
+    <%= f.text_field :rating_gteq, :class => "form-control", :placeholder => "Rating " %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :description_cont, "Description containing" %>
+    <%= f.text_field :description_cont, :class => "form-control", :placeholder => "Description containing" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :director_name_cont, "Director name containing" %>
+    <%= f.text_field :director_name_cont, :class => "form-control", :placeholder => "Director name containing" %>
+  </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+
+  <a href="/movies" class="btn btn-default btn-block">Clear filters</a>
+<% end %>
+
+
 
 <div class="row">
   <div class="col-md-12">

@@ -4,6 +4,55 @@
     <a href="/directors/new" class="btn btn-lg btn-success">New Director</a>
   </h1>
 </div>
+<%= search_form_for @q do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :name_cont, "Name containing" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name containing" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :age_lt, "Age less than" %>
+    <%= f.text_field :age_lt, :class => "form-control", :placeholder => "Age less than" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :age_lteq, "Age less than or equal to" %>
+    <%= f.text_field :age_lteq, :class => "form-control", :placeholder => "Age less than or equal to" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :age_gt, "Age greater than" %>
+    <%= f.text_field :age_gt, :class => "form-control", :placeholder => "Age greater than" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :age_gteq, "Age greater than or equal to" %>
+    <%= f.text_field :age_gteq, :class => "form-control", :placeholder => "Age greater than or equal to" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :bio_cont, "Bio containing" %>
+    <%= f.text_field :bio_cont, :class => "form-control", :placeholder => "Bio containing" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :oscar_true, "Oscar is" %>
+    <%= f.text_field :oscar_true, :class => "form-control", :placeholder => "Oscar is" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :movies_title_cont, "Movie title containing" %>
+    <%= f.text_field :movies_title_cont, :class => "form-control", :placeholder => "Movie title containing" %>
+  </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+
+  <a href="/directors" class="btn btn-default btn-block">Clear filters</a>
+<% end %>
+
+
 
 <div class="row">
   <div class="col-md-12">

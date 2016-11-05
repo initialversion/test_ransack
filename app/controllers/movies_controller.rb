@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.page(params[:page])
+    @q = Movie.ransack(params[:q])
+    @movies = @q.result(:distinct => true).includes(:director).page(params[:page]).per(params[:per_page])
   end
 
   def show
