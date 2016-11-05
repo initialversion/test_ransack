@@ -1,5 +1,7 @@
 ActiveAdmin.register Director do
 
+ permit_params :name, :dob, :age, :bio, :oscar, :image, :address
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
