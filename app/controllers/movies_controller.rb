@@ -2,33 +2,44 @@ class MoviesController < ApplicationController
   def index
     @q = Movie.ransack(params[:q])
     @movies = @q.result(:distinct => true).includes(:director).page(params[:page]).per(params[:per_page])
+
+    render("movies/index.html.erb")
   end
 
   def show
     @movie = Movie.find(params[:id])
+
+    render("movies/show.html.erb")
   end
 
   def new
     @movie = Movie.new
+
+    render("movies/new.html.erb")
   end
 
   def create
     @movie = Movie.new
+
     @movie.title = params[:title]
     @movie.duration = params[:duration]
     @movie.rating = params[:rating]
     @movie.description = params[:description]
     @movie.director_id = params[:director_id]
 
-    if @movie.save
-      redirect_to "/movies", :notice => "Movie created successfully."
+    save_status = @movie.save
+
+    if save_status == true
+      redirect_to(:back, :notice => "Movie created successfully.")
     else
-      render 'new'
+      render("movies/new.html.erb")
     end
   end
 
   def edit
     @movie = Movie.find(params[:id])
+
+    render("movies/edit.html.erb")
   end
 
   def update
@@ -40,10 +51,12 @@ class MoviesController < ApplicationController
     @movie.description = params[:description]
     @movie.director_id = params[:director_id]
 
-    if @movie.save
-      redirect_to "/movies", :notice => "Movie updated successfully."
+    save_status = @movie.save
+
+    if save_status == true
+      redirect_to(:back, :notice => "Movie updated successfully.")
     else
-      render 'edit'
+      render("movies/edit.html.erb")
     end
   end
 
@@ -52,6 +65,6 @@ class MoviesController < ApplicationController
 
     @movie.destroy
 
-    redirect_to "/movies", :notice => "Movie deleted."
+    redirect_to(:back, :notice => "Movie deleted.")
   end
 end

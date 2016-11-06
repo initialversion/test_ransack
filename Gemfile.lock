@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/raghubetina/starter_generators.git
-  revision: bb818e7b2b531da20a6c3b05bec9ef807ca82af2
+  revision: d79091a3a9ccee266c777032548c8646047980fc
   specs:
     starter_generators (0.9.6)
 
@@ -96,7 +96,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
-    cloudinary (1.2.3)
+    cloudinary (1.2.4)
       aws_cf_signer
       rest-client
     coffee-rails (4.2.1)
@@ -108,7 +108,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
-    domain_name (0.5.20160826)
+    domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
